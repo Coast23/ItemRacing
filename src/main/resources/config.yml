@@ -1,0 +1,42 @@
+# =================================================================== #
+#                  ItemRacing 插件配置 (v1.0.0)                      #
+# =================================================================== #
+
+# 队伍
+teams:
+  red:
+    display-name: "§c红队"
+    color: "#FF5555"
+  blue:
+    display-name: "§9蓝队"
+    color: "#5555FF"
+  green:
+    display-name: "§a绿队"
+    color: "#55FF55"
+  yellow:
+    display-name: "§e黄队"
+    color: "#FFFF55"
+
+# 是否为每位玩家解锁全配方
+unlock-all-recipes: true
+
+# 花费
+locate-cost: 3
+tpr-cost: 2
+
+# 免费使用次数
+initial-tpr-uses: 3
+initial-locate-uses: 1
+
+# 团队箱子与地标数量
+team-chest-amount: 40
+team-waypoint-amount: 40
+
+# 任务相关
+task-queue-size: 5
+items-to-collect: 20
+score-per-item: 3
+
+# 可 roll 次数
+max-rolls-per-team: 5
+

@@ -1,0 +1,45 @@
+name: ItemRacing
+version: '1.0'
+main: top.coast23.ItemRacing.ItemRacing
+api-version: '1.21'
+commands:
+  join:
+    description: 加入一个队伍。
+    usage: "/join <队伍ID>"
+  leave:
+    description: 离开当前队伍
+    usage: "/leave"
+  start:
+    description: 开始游戏
+    usage: "/start"
+  tpr:
+    description: 随机传送
+    usage: "/tpr"
+  chest:
+    description: 打开团队箱子
+    usage: "/chest <箱子序号>"
+    aliases: [box]
+  roll:
+    description: 申请重摇任务
+    usage: "/roll"
+  wp:
+    description: 打开团队路径点菜单
+    usage: "/wp"
+  locate:
+    description: 消耗一次定位次数来使用/locate命令。
+    usage: "/locate <biome | structure> <名称>"
+  # [改造] 新的队内传送指令
+  tp:
+    description: 传送到你的队友身边
+    usage: "/tp <队友名>"
+  scoreboard:
+    description: 更改你的计分板显示样式
+    usage: "/sb <ranking | watch | rotate >"
+    aliases: [sb]
+  pc:
+    description: 组队聊天
+    usage: "/pc <消息>"
+    aliases: [teammsg]
+  help:
+    description: 获取命令帮助
+    usage: "/help"
