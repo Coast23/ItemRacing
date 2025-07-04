@@ -50,7 +50,7 @@ public class HelpCommand implements CommandExecutor, TabCompleter {
             player.sendMessage(createHelpLine("/sb <ranking | watch | rotate>", "切换计分板样式"));
         }
         else if(gameManager.getCurrentState() == GameManager.GameState.ENDED){
-            player.sendMessage(createHelpLine("/restart", "重启服务器 [待实现]"));
+            player.sendMessage(createHelpLine("/itemracing:restart", "重启服务器"));
         }
         return true;
     }

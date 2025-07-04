@@ -1,5 +1,5 @@
 name: ItemRacing
-version: '1.0'
+version: '1.1'
 main: top.coast23.ItemRacing.ItemRacing
 api-version: '1.21'
 commands:
@@ -28,7 +28,6 @@ commands:
   locate:
     description: 消耗一次定位次数来使用/locate命令。
     usage: "/locate <biome | structure> <名称>"
-  # [改造] 新的队内传送指令
   tp:
     description: 传送到你的队友身边
     usage: "/tp <队友名>"
@@ -43,3 +42,6 @@ commands:
   help:
     description: 获取命令帮助
     usage: "/help"
+  restart:
+    description: 重启服务器
+    usage: "/itemracing:restart"

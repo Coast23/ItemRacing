@@ -58,9 +58,9 @@ Minecraft 版本: Java `1.21.X`. 服务端: `paper` 及其衍生版本. 游戏�
 
 ### 结束阶段
 
-| 命令 | 功能 |
-| :---: | :---: |
-| /restart | 重启服务器 [待实现] |
+|         命令          | 功能 |
+|:-------------------:| :---: |
+| /itemracing:restart | 重启服务器
 
 ## 规则设置
 
@@ -69,10 +69,6 @@ Minecraft 版本: Java `1.21.X`. 服务端: `paper` 及其衍生版本. 游戏�
 服务器所有者可通过配置文件 `config.yml` 修改以下基本游戏规则:
 
 ```yaml
-# =================================================================== #
-#                    ItemRacing 插件配置 (v1.0)                        #
-# =================================================================== #
-
 # 队伍名称及颜色
 teams:
   red:
@@ -211,3 +207,41 @@ java -Xmx4G -Xms4G -jar 你的jar完整文件名 nogui
 从 [Releases页](https://github.com/Coast23/ItemRacing/releases) 下载 `ItemRacing-x.x.jar`, 把它放到服务器的 `plugins` 文件夹中.
 
 首次启动服务器后, 会生成 `plugins/ItemRacing/config.yml`, 可根据自己的需求进行配置.
+
+### 重启服务器
+
+使用该功能需要将 `start.sh` 修改为:
+
+* Windows:
+
+```powershell
+@echo off
+:start
+
+rd /s /q world
+rd /s /q world_nether
+rd /s /q world_the_end
+java -Xmx4G -Xms4G -jar 你的jar完整文件名 nogui
+
+echo.
+echo echo Server will restart in 5 seconds... Press Ctrl+C to cancel.
+timeout /t 5
+goto start
+```
+
+* Linux:
+
+```shell
+#!/bin/bash
+
+while true
+do
+    rm -rf world
+    rm -rf world_nether
+    rm -rf world_the_end
+    java -Xmx4G -Xms4G -jar 你的jar完整文件名 nogui
+    
+    echo "Server will restart in 5 seconds... Press Ctrl+C to cancel."
+    sleep 5
+done
+```

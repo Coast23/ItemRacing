@@ -104,7 +104,8 @@ public class ItemManager {
                     name.contains("SNIFFER") || // 嗅探兽蛋
                     name.contains("_ARMOR_TRIM") || // 锻造模板
                     name.contains("_FROGLIGHT") || // 蛙明灯
-                    name.contains("INFESTED_")) // 虫蚀方块
+                    name.contains("INFESTED_") || // 虫蚀方块
+                    name.contains("COMMAND_BLOCK")) // 命令方块
             {
                 continue;
             }

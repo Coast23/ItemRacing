@@ -65,7 +65,7 @@ public final class ItemRacing extends JavaPlugin {
         new AntiGlitchTask().runTaskTimer(this, 0L, 2L);
 
         getLogger().info("========================================");
-        getLogger().info("             ItemRacing v1.0            ");
+        getLogger().info("              ItemRacing v1.1           ");
         getLogger().info("              插件已成功启动！");
         getLogger().info("========================================");
     }
@@ -112,6 +112,10 @@ public final class ItemRacing extends JavaPlugin {
         HelpCommand helpCommand = new HelpCommand(gameManager);
         Objects.requireNonNull(getCommand("help")).setExecutor(helpCommand);
         Objects.requireNonNull(getCommand("help")).setTabCompleter(helpCommand);
+
+        RestartCommand restartCommand = new RestartCommand(gameManager);
+        Objects.requireNonNull(getCommand("restart")).setExecutor(restartCommand);
+        Objects.requireNonNull(getCommand("restart")).setTabCompleter(restartCommand);
     }
 
     private void registerListeners() {
