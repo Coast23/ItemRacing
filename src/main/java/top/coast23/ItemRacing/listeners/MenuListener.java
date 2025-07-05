@@ -10,7 +10,6 @@ import top.coast23.ItemRacing.guis.TeamChestSelectMenu;
 import top.coast23.ItemRacing.guis.TeamSelectMenu;
 import top.coast23.ItemRacing.guis.WaypointMenu;
 import top.coast23.ItemRacing.managers.*;
-import top.coast23.ItemRacing.models.Team;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.Location;
@@ -27,7 +26,7 @@ import org.bukkit.persistence.PersistentDataType;
 
 import java.util.List;
 import java.util.Collections;
-import java.util.Optional;
+import java.util.Objects;
 
 /**
  * [全面重构] 负责监听所有自定义GUI菜单中的点击事件。
@@ -151,6 +150,7 @@ public class MenuListener implements Listener {
         boolean refresh = true;
         String settingName = "";
         String newValue = "";
+        String preValue = "";
 
         switch (slot) {
             // --- Row 2 ---
@@ -166,34 +166,40 @@ public class MenuListener implements Listener {
             //    newValue = gameSettings.getGameMode().toString();
                 break;
             case 5: // 开局工具
+                preValue = gameSettings.getToolType().toString();
                 gameSettings.cycleToolType();
                 settingName = "工具";
                 newValue = gameSettings.getToolType().toString();
                 break;
             case 7: // 开局鞘翅
+                preValue = gameSettings.getToolType().toString();
                 gameSettings.cycleElytraType();
                 settingName = "鞘翅";
                 newValue = gameSettings.getElytraType().toString();
                 break;
             // --- Row 3 ---
             case 10: // 开局食物
+                preValue = gameSettings.getFoodType().toString();
                 gameSettings.cycleFoodType();
                 settingName = "食物";
                 newValue = gameSettings.getFoodType().toString();
                 break;
             case 12: // 速度等级
+                preValue = String.valueOf(gameSettings.getSpeedLevel());
                 if (click.isLeftClick()) gameSettings.setSpeedLevel(gameSettings.getSpeedLevel() + 1);
                 else if (click.isRightClick()) gameSettings.setSpeedLevel(gameSettings.getSpeedLevel() - 1);
                 settingName = "速度效果";
                 newValue = String.valueOf(gameSettings.getSpeedLevel());
                 break;
             case 14: // 急迫等级
+                preValue = String.valueOf(gameSettings.getHasteLevel());
                 if (click.isLeftClick()) gameSettings.setHasteLevel(gameSettings.getHasteLevel() + 1);
                 else if (click.isRightClick()) gameSettings.setHasteLevel(gameSettings.getHasteLevel() - 1);
                 settingName = "急迫效果";
                 newValue = String.valueOf(gameSettings.getHasteLevel());
                 break;
             case 16:
+                preValue = String.valueOf(gameSettings.getHasteLevel());
                 if(click.isLeftClick()) gameSettings.setResistLevel(gameSettings.getResistLevel() + 1);
                 else if(click.isRightClick()) gameSettings.setResistLevel(gameSettings.getResistLevel() - 1);
                 settingName = "抗性提升";
@@ -201,21 +207,25 @@ public class MenuListener implements Listener {
                 break;
                 // --- Row 4 ---
             case 19:
+                preValue = gameSettings.isGiveMendingBook() ? "是" : "否";
                 gameSettings.toggleGiveMendingBook();
                 settingName = "给予 [经验修补]";
                 newValue = gameSettings.isGiveMendingBook() ? "是" : "否";
                 break;
             case 21:
+                preValue = gameSettings.isGiveSilktouchBook() ? "是" : "否";
                 gameSettings.toggleGiveSilktouchBook();
                 settingName = "给予 [精准采集]";
                 newValue = gameSettings.isGiveSilktouchBook() ? "是" : "否";
                 break;
             case 23:
+                preValue = gameSettings.isGiveFortuneBook() ? "是" : "否";
                 gameSettings.toggleGiveFortuneBook();
                 settingName = "给予 [时运]";
                 newValue = gameSettings.isGiveFortuneBook() ? "是" : "否";
                 break;
             case 25:
+                preValue = gameSettings.isGiveLootingBook() ? "是" : "否";
                 gameSettings.toggleGiveLootingBook();
                 settingName = "给予 [抢夺]";
                 newValue = gameSettings.isGiveLootingBook() ? "是" : "否";
@@ -225,10 +235,8 @@ public class MenuListener implements Listener {
                 break;
         }
 
-        if (refresh) {
-            if (!settingName.isEmpty()) {
-                broadcastManager.settingChanged(player, settingName, newValue);
-            }
+        if (refresh && !Objects.equals(preValue, newValue)) {
+            broadcastManager.settingChanged(player, settingName, newValue);
             guiManager.openGameSettingsMenu(player);
             scoreboardManager.forceUpdateAllScoreboards();
         }

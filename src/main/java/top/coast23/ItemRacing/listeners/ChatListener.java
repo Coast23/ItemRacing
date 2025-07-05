@@ -47,10 +47,13 @@ public class ChatListener implements Listener {
             String message = PlainTextComponentSerializer.plainText().serialize(event.originalMessage());
             playersAwaitingInput.remove(playerId);
             try{
+                int preset = gameSettings.getItemsToCollect();
                 int amount = Integer.parseInt(message);
-                gameSettings.setItemsToCollect(amount);
-                broadcastManager.settingChanged(player, "目标物品数量", String.valueOf(amount));
-                scoreboardManager.forceUpdateAllScoreboards();
+                if(preset != amount) {
+                    gameSettings.setItemsToCollect(amount);
+                    broadcastManager.settingChanged(player, "目标物品数量", String.valueOf(amount));
+                    scoreboardManager.forceUpdateAllScoreboards();
+                }
             }catch (NumberFormatException e) {
                 player.sendMessage(Component.text("输入非法，取消设置。", NamedTextColor.RED));
             }
