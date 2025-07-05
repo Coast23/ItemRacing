@@ -77,7 +77,9 @@ public class ItemManager {
             // 三叉戟
             Material.TRIDENT,
             // 不死图腾
-            Material.TOTEM_OF_UNDYING
+            Material.TOTEM_OF_UNDYING,
+            // 紫颂植株
+            Material.CHORUS_PLANT
     );
 
     public ItemManager(ItemRacing plugin) {
