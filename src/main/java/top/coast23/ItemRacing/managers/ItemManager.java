@@ -85,7 +85,9 @@ public class ItemManager {
             // 地球旗帜图案, 涡流旗帜图案, 旋风旗帜图案, 猪鼻旗帜图案, 苦力怕盾徽旗帜图案
             Material.GLOBE_BANNER_PATTERN, Material.FLOW_BANNER_PATTERN, Material.GUSTER_BANNER_PATTERN, Material.PIGLIN_BANNER_PATTERN, Material.CREEPER_BANNER_PATTERN,
             // 可疑的沙子, 可疑的沙砾
-            Material.SUSPICIOUS_SAND, Material.SUSPICIOUS_GRAVEL
+            Material.SUSPICIOUS_SAND, Material.SUSPICIOUS_GRAVEL,
+            // 龙息
+            Material.DRAGON_BREATH
     );
 
     public ItemManager(ItemRacing plugin) {
