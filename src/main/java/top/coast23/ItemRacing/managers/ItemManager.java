@@ -79,7 +79,13 @@ public class ItemManager {
             // 不死图腾
             Material.TOTEM_OF_UNDYING,
             // 紫颂植株
-            Material.CHORUS_PLANT
+            Material.CHORUS_PLANT,
+            // 凋零玫瑰
+            Material.WITHER_ROSE,
+            // 地球旗帜图案, 涡流旗帜图案, 旋风旗帜图案, 猪鼻旗帜图案, 苦力怕盾徽旗帜图案
+            Material.GLOBE_BANNER_PATTERN, Material.FLOW_BANNER_PATTERN, Material.GUSTER_BANNER_PATTERN, Material.PIGLIN_BANNER_PATTERN, Material.CREEPER_BANNER_PATTERN,
+            // 可疑的沙子, 可疑的沙砾
+            Material.SUSPICIOUS_SAND, Material.SUSPICIOUS_GRAVEL
     );
 
     public ItemManager(ItemRacing plugin) {
