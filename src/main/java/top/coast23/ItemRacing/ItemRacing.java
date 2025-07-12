@@ -65,7 +65,7 @@ public final class ItemRacing extends JavaPlugin {
         new AntiGlitchTask().runTaskTimer(this, 0L, 2L);
 
         getLogger().info("========================================");
-        getLogger().info("              ItemRacing v1.1           ");
+        getLogger().info("              ItemRacing v1.2           ");
         getLogger().info("              插件已成功启动！");
         getLogger().info("========================================");
     }
