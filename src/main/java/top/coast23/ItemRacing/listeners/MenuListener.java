@@ -199,7 +199,7 @@ public class MenuListener implements Listener {
                 newValue = String.valueOf(gameSettings.getHasteLevel());
                 break;
             case 16:
-                preValue = String.valueOf(gameSettings.getHasteLevel());
+                preValue = String.valueOf(gameSettings.getResistLevel());
                 if(click.isLeftClick()) gameSettings.setResistLevel(gameSettings.getResistLevel() + 1);
                 else if(click.isRightClick()) gameSettings.setResistLevel(gameSettings.getResistLevel() - 1);
                 settingName = "抗性提升";
